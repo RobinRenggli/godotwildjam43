@@ -9,6 +9,24 @@ func _ready():
 	RNG = RandomNumberGenerator.new()
 	RNG.randomize()
 
+func get_drag_data(position):
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	var data = {
+		"effects": potion_effects,
+		"finished": true
+		}
+	var drag_texture = TextureRect.new()
+	drag_texture.texture = load("res://icon.png")
+	
+	var control = Control.new()
+	control.add_child(drag_texture)
+	drag_texture.rect_min_size = drag_texture.texture.get_size()
+	drag_texture.rect_size = drag_texture.texture.get_size()
+	drag_texture.rect_position = -0.5 * drag_texture.rect_size
+	
+	set_drag_preview(control)
+	return data
+
 func can_drop_data(position, data):
 	return true
 
