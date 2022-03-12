@@ -6,3 +6,6 @@
 effects = {
 "healing": 1
 }
+negative_effects = {
+"speed": -1
+}
