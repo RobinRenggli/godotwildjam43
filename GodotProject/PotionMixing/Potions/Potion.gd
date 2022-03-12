@@ -1,10 +1,14 @@
 extends TextureRect
 
 export (Dictionary) var effects = {}
+export (Dictionary) var negative_effects = {}
 
 func get_drag_data(position):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	var data = effects
+	var data = {
+		"effects": effects,
+		"negative_effects": negative_effects
+		}
 	var drag_texture = TextureRect.new()
 	drag_texture.texture = texture
 	
@@ -13,8 +17,6 @@ func get_drag_data(position):
 	drag_texture.rect_min_size = texture.get_size()
 	drag_texture.rect_size = texture.get_size()
 	drag_texture.rect_position = -0.5 * drag_texture.rect_size
-	print(drag_texture.rect_position)
-	print(drag_texture.rect_size)
 	
 	set_drag_preview(control)
 	return data
