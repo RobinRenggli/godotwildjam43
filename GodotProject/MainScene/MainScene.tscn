@@ -21,10 +21,10 @@ margin_right = 938.0
 margin_bottom = 883.0
 
 [node name="BullHeart" parent="PotionMixingLayer" index="2"]
-margin_left = 624.0
-margin_top = 142.0
-margin_right = 774.0
-margin_bottom = 292.0
+margin_left = 630.0
+margin_top = 154.0
+margin_right = 780.0
+margin_bottom = 304.0
 effects = {
 "health": 1
 }
@@ -33,10 +33,10 @@ negative_effects = {
 }
 
 [node name="Snake Extract" parent="PotionMixingLayer" index="3"]
-margin_left = 761.0
-margin_top = 141.0
-margin_right = 911.0
-margin_bottom = 291.0
+margin_left = 759.0
+margin_top = 153.0
+margin_right = 909.0
+margin_bottom = 303.0
 effects = {
 "poison_resistance": 1
 }
