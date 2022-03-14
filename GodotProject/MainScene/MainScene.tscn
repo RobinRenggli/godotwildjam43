@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PotionMixing/PotionMixingUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Heroes/Dwarf.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MainScene/BGPlaceholder.png" type="Texture" id=3]
+[ext_resource path="res://MainScene/MainScene.gd" type="Script" id=4]
+[ext_resource path="res://TextBox.tscn" type="PackedScene" id=5]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="BgPlaceholder" type="Sprite" parent="."]
 position = Vector2( 512, 384 )
@@ -44,4 +47,42 @@ negative_effects = {
 "health": -1
 }
 
+[node name="TextBox" parent="." instance=ExtResource( 5 )]
+
+[node name="TextBoxContainer" parent="TextBox" index="0"]
+margin_left = 67.0
+margin_top = -172.0
+margin_right = -512.0
+margin_bottom = -11.0
+
+[node name="Panel" parent="TextBox/TextBoxContainer" index="0"]
+margin_right = 445.0
+margin_bottom = 161.0
+
+[node name="MarginContainer" parent="TextBox/TextBoxContainer" index="1"]
+margin_right = 445.0
+margin_bottom = 161.0
+
+[node name="Panel" parent="TextBox/TextBoxContainer/MarginContainer" index="0"]
+margin_right = 415.0
+margin_bottom = 131.0
+
+[node name="HBoxContainer" parent="TextBox/TextBoxContainer/MarginContainer" index="1"]
+margin_right = 415.0
+margin_bottom = 131.0
+
+[node name="StartSymbol" parent="TextBox/TextBoxContainer/MarginContainer/HBoxContainer" index="0"]
+margin_bottom = 2.0
+
+[node name="LabelText" parent="TextBox/TextBoxContainer/MarginContainer/HBoxContainer" index="1"]
+margin_right = 371.0
+margin_bottom = 101.0
+
+[node name="EndSymbol" parent="TextBox/TextBoxContainer/MarginContainer/HBoxContainer" index="2"]
+margin_left = 375.0
+margin_top = 99.0
+margin_right = 385.0
+margin_bottom = 101.0
+
 [editable path="PotionMixingLayer"]
+[editable path="TextBox"]
