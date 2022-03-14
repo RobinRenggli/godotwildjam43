@@ -6,6 +6,8 @@ enum OUTCOME{
 	death
 }
 
+var level = 1
+
 var outcome
 var summary = ""
 

@@ -17,11 +17,6 @@ enum State {
 	READING
 }
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	set_text_speed()
-	hide_textbox()
-
 func _process(delta):
 	match current_state:
 		State.READY:
@@ -30,25 +25,14 @@ func _process(delta):
 		State.READING:
 			pass
 
-func set_text_speed():
-	match Overviewer.text_speed:
-		0:
-			char_read_rate = 0.12 
-		1:
-			char_read_rate = 0.08
-		2:
-			char_read_rate = 0.04
-
 func change_state(next_state):
 	current_state = next_state
 
 func queue_text(next_text):
-	if Overviewer.display_text == true:
-		text_queue.push_back(next_text)
+	text_queue.push_back(next_text)
 
 func queue_pause_seconds(pause_time):
-	if Overviewer.display_text == true:
-		text_queue.push_back(PAUSE_PREFIX + str(pause_time))
+	text_queue.push_back(PAUSE_PREFIX + str(pause_time))
 
 func clear_text_queue():
 	text_queue.clear()
