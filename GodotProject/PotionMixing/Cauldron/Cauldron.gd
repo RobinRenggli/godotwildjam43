@@ -35,23 +35,24 @@ func drop_data(_pos, data):
 	add_to_cauldron(data)
 
 func add_to_cauldron(data):
-	var bad_ingredient = check_bad_ingredient()
-	var effects
-	if check_explosion():
-		explode()
-	if not bad_ingredient:
-		effects = data["effects"]
-	else:
-		effects = data["negative_effects"]
-		nr_bad_ingredients += 1
-	for key in effects:
-		var value = effects[key]
-		if potion_effects.has(key):
-			potion_effects[key] += value
+	if not data["finished"]:
+		var bad_ingredient = check_bad_ingredient()
+		var effects
+		if check_explosion():
+			explode()
+		if not bad_ingredient:
+			effects = data["effects"]
 		else:
-			potion_effects[key] = value
-	nr_ingredients += 1
-	print(potion_effects)
+			effects = data["negative_effects"]
+			nr_bad_ingredients += 1
+		for key in effects:
+			var value = effects[key]
+			if potion_effects.has(key):
+				potion_effects[key] += value
+			else:
+				potion_effects[key] = value
+		nr_ingredients += 1
+		print(potion_effects)
 
 func check_bad_ingredient():
 	if nr_ingredients < 1:
