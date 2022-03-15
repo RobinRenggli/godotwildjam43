@@ -21,8 +21,6 @@ script = ExtResource( 4 )
 position = Vector2( 512, 384 )
 texture = ExtResource( 3 )
 
-[node name="Dwarf" parent="." instance=ExtResource( 2 )]
-
 [node name="PotionMixingLayer" parent="." instance=ExtResource( 1 )]
 
 [node name="Cauldron" parent="PotionMixingLayer" index="1"]
@@ -54,6 +52,8 @@ effects = {
 negative_effects = {
 "health": -1
 }
+
+[node name="Dwarf" parent="PotionMixingLayer" instance=ExtResource( 2 )]
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 pause_mode = 2

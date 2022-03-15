@@ -17,6 +17,8 @@ var next_adventure
 
 var dialog = "Oi, are you the new potion seller? I am Silli the dwarf and would like to employ your services."
 
+signal potion_received
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -33,3 +35,11 @@ func chose_adventure(adventures):
 	
 func go_on_adventure():
 	pass
+
+func can_drop_data(position, data):     
+	return true
+	
+func drop_data(_pos, data):
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	emit_signal("potion_received")
+	
