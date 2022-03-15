@@ -6,6 +6,7 @@
 [node name="Snake Extract" instance=ExtResource( 1 )]
 hint_tooltip = "Snake Extract"
 texture = ExtResource( 2 )
+potion_name = "Snake Extract"
 effects = {
 "poison_resistance": 1
 }

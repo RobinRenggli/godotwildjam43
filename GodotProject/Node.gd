@@ -11,7 +11,7 @@ var level = 1
 var outcome
 var summary = ""
 
-export var description = ""
+export(String, MULTILINE) var description = ""
 export var encounters = []
 
 func start_adventure():
