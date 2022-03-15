@@ -1,5 +1,7 @@
 extends TextureRect
 
+var state = "success"
+
 export var level = 1
 
 export var health = 3
@@ -34,7 +36,10 @@ func chose_adventure(adventures):
 	return next_adventure
 	
 func go_on_adventure():
-	pass
+	var result = next_adventure.start_adventure(self)
+	dialog = result[0]
+	state = result[1]
+	print(dialog)
 
 func can_drop_data(position, data):     
 	return true

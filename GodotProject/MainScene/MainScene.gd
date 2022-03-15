@@ -14,5 +14,6 @@ func game_loop():
 	var adventure = active_hero.chose_adventure(adventures)
 	TextBox.queue_text(adventure.description)
 	yield(active_hero, "potion_received")
-	TextBox.queue_text("OIOIOI")
+	active_hero.go_on_adventure()
+	game_loop()
 	
