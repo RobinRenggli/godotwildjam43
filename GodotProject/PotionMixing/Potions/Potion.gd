@@ -1,7 +1,13 @@
 extends TextureRect
 
+export var potion_name = "name"
 export (Dictionary) var effects = {}
 export (Dictionary) var negative_effects = {}
+
+
+func _ready():
+	$PotionLabel.visible = false
+	$PotionLabel/Label.text = potion_name
 
 func get_drag_data(position):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -27,3 +33,11 @@ func can_drop_data(position, data):
 
 func drop_data(_pos, data):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_Potion_mouse_entered():
+	$PotionLabel.visible = true
+
+
+func _on_Potion_mouse_exited():
+	$PotionLabel.visible = false

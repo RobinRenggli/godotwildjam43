@@ -27,6 +27,7 @@ margin_left = 246.0
 margin_top = 293.0
 margin_right = 396.0
 margin_bottom = 443.0
+hint_tooltip = "Bull Heart"
 effects = {
 "health": 1
 }
