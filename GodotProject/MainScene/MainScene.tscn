@@ -1,20 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://PotionMixing/PotionMixingUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Heroes/Dwarf.tscn" type="PackedScene" id=2]
-[ext_resource path="res://MainScene/BGPlaceholder.png" type="Texture" id=3]
+[ext_resource path="res://MainScene/Background.png" type="Texture" id=3]
 [ext_resource path="res://MainScene/MainScene.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/boert.tres" type="DynamicFont" id=5]
 [ext_resource path="res://UIElements/Textbox.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Textbox.png" type="Texture" id=7]
+[ext_resource path="res://MainScene/Landscape.png" type="Texture" id=8]
 [ext_resource path="res://AudioController.tscn" type="PackedScene" id=9]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="BgPlaceholder" type="Sprite" parent="."]
-position = Vector2( 512, 384 )
-texture = ExtResource( 3 )
+[node name="Landscape" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 271, 262 )
+texture = ExtResource( 8 )
 
 [node name="PotionMixingLayer" parent="." instance=ExtResource( 1 )]
 
@@ -25,10 +27,10 @@ margin_right = 938.0
 margin_bottom = 883.0
 
 [node name="BullHeart" parent="PotionMixingLayer" index="2"]
-margin_left = 630.0
-margin_top = 154.0
-margin_right = 780.0
-margin_bottom = 304.0
+margin_left = 589.0
+margin_top = 66.0
+margin_right = 739.0
+margin_bottom = 216.0
 effects = {
 "health": 1
 }
@@ -37,10 +39,10 @@ negative_effects = {
 }
 
 [node name="Snake Extract" parent="PotionMixingLayer" index="3"]
-margin_left = 759.0
-margin_top = 153.0
-margin_right = 909.0
-margin_bottom = 303.0
+margin_left = 684.0
+margin_top = 148.0
+margin_right = 834.0
+margin_bottom = 298.0
 effects = {
 "poison_resistance": 1
 }
@@ -48,7 +50,39 @@ negative_effects = {
 "health": -1
 }
 
+[node name="GroundClover" parent="PotionMixingLayer" index="4"]
+margin_left = 781.0
+margin_top = 150.0
+margin_right = 931.0
+margin_bottom = 300.0
+effects = {
+"luck": 1
+}
+negative_effects = {
+"magic_resistance": -1
+}
+
+[node name="Beetroot Juice" parent="PotionMixingLayer" index="5"]
+margin_left = 566.0
+margin_top = 140.0
+margin_right = 716.0
+margin_bottom = 290.0
+effects = {
+"speed": 1
+}
+negative_effects = {
+"strength": -1
+}
+
 [node name="Dwarf" parent="PotionMixingLayer" instance=ExtResource( 2 )]
+margin_left = 121.0
+margin_top = 164.0
+margin_right = 426.0
+margin_bottom = 469.0
+
+[node name="BgPlaceholder" type="Sprite" parent="."]
+position = Vector2( 512, 384 )
+texture = ExtResource( 3 )
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -58,10 +92,10 @@ script = ExtResource( 6 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 39.0
-margin_top = -283.0
-margin_right = -485.0
-margin_bottom = 92.0
+margin_left = 21.0
+margin_top = -337.0
+margin_right = -503.0
+margin_bottom = 38.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

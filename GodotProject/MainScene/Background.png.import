@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RedPotion.png-a9d0b0bf3a02a945ac71892b5f324e97.stex"
+path="res://.import/Background.png-7ba59ee35fe284cd68748f526eebbcac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PotionMixing/Potions/RedPotion.png"
-dest_files=[ "res://.import/RedPotion.png-a9d0b0bf3a02a945ac71892b5f324e97.stex" ]
+source_file="res://MainScene/Background.png"
+dest_files=[ "res://.import/Background.png-7ba59ee35fe284cd68748f526eebbcac.stex" ]
 
 [params]
 
