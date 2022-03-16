@@ -4,7 +4,6 @@
 [ext_resource path="res://PotionMixing/Potions/YellowPotion.png" type="Texture" id=2]
 
 [node name="Snake Extract" instance=ExtResource( 1 )]
-hint_tooltip = "Snake Extract"
 texture = ExtResource( 2 )
 potion_name = "Snake Extract"
 effects = {
