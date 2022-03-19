@@ -42,9 +42,11 @@ func add_to_cauldron(data):
 			explode()
 		if not bad_ingredient:
 			effects = data["effects"]
+			good_ingredient_added()
 		else:
 			effects = data["negative_effects"]
 			nr_bad_ingredients += 1
+			bad_ingredient_added()
 		for key in effects:
 			var value = effects[key]
 			if potion_effects.has(key):
@@ -53,6 +55,8 @@ func add_to_cauldron(data):
 				potion_effects[key] = value
 		nr_ingredients += 1
 		print(potion_effects)
+	else:
+		get_node("CauldronBadCauldron").emitting = false
 
 func check_bad_ingredient():
 	if nr_ingredients < 1:
@@ -82,3 +86,20 @@ func check_explosion():
 
 func explode():
 	print("EXPLOSION")
+
+func good_ingredient_added():
+	var good_effect = get_node("CauldronPotionGoodParticles")
+	good_effect.emitting = true
+
+func bad_ingredient_added():
+	var bad_effect = get_node("CauldronPotionBadParticles")
+	var bad_cauldron = get_node("CauldronBadCauldron")
+	bad_effect.emitting = true
+	bad_cauldron.emitting = true
+	
+		
+	
+	
+
+	
+
