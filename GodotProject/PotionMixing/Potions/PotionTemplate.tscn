@@ -16,9 +16,6 @@ rect_min_size = Vector2( 150, 150 )
 texture = ExtResource( 1 )
 expand = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PotionLabel" type="TextureRect" parent="."]
 visible = false
