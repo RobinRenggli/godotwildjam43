@@ -2,24 +2,21 @@
 
 [ext_resource path="res://PotionMixing/PotionMixingUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Heroes/Dwarf.tscn" type="PackedScene" id=2]
-[ext_resource path="res://MainScene/BGPlaceholder.png" type="Texture" id=3]
+[ext_resource path="res://MainScene/Background.png" type="Texture" id=3]
 [ext_resource path="res://MainScene/MainScene.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Fonts/FontTextBox24.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Fonts/boert.tres" type="DynamicFont" id=5]
 [ext_resource path="res://UIElements/Textbox.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Styles/TextBox.tres" type="StyleBox" id=7]
-[ext_resource path="res://Assets/Fonts/Alineatypeface-eldx.ttf" type="DynamicFontData" id=8]
-
-[sub_resource type="DynamicFont" id=2]
-size = 28
-extra_spacing_char = 2
-font_data = ExtResource( 8 )
+[ext_resource path="res://Assets/Textbox.png" type="Texture" id=7]
+[ext_resource path="res://MainScene/Landscape.png" type="Texture" id=8]
+[ext_resource path="res://AudioController.tscn" type="PackedScene" id=9]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="BgPlaceholder" type="Sprite" parent="."]
-position = Vector2( 512, 384 )
-texture = ExtResource( 3 )
+[node name="Landscape" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 271, 262 )
+texture = ExtResource( 8 )
 
 [node name="PotionMixingLayer" parent="." instance=ExtResource( 1 )]
 
@@ -30,10 +27,10 @@ margin_right = 938.0
 margin_bottom = 883.0
 
 [node name="BullHeart" parent="PotionMixingLayer" index="2"]
-margin_left = 630.0
-margin_top = 154.0
-margin_right = 780.0
-margin_bottom = 304.0
+margin_left = 589.0
+margin_top = 66.0
+margin_right = 739.0
+margin_bottom = 216.0
 effects = {
 "health": 1
 }
@@ -42,10 +39,10 @@ negative_effects = {
 }
 
 [node name="Snake Extract" parent="PotionMixingLayer" index="3"]
-margin_left = 759.0
-margin_top = 153.0
-margin_right = 909.0
-margin_bottom = 303.0
+margin_left = 684.0
+margin_top = 148.0
+margin_right = 834.0
+margin_bottom = 298.0
 effects = {
 "poison_resistance": 1
 }
@@ -53,7 +50,39 @@ negative_effects = {
 "health": -1
 }
 
+[node name="GroundClover" parent="PotionMixingLayer" index="4"]
+margin_left = 781.0
+margin_top = 150.0
+margin_right = 931.0
+margin_bottom = 300.0
+effects = {
+"luck": 1
+}
+negative_effects = {
+"magic_resistance": -1
+}
+
+[node name="Beetroot Juice" parent="PotionMixingLayer" index="5"]
+margin_left = 566.0
+margin_top = 140.0
+margin_right = 716.0
+margin_bottom = 290.0
+effects = {
+"speed": 1
+}
+negative_effects = {
+"strength": -1
+}
+
 [node name="Dwarf" parent="PotionMixingLayer" instance=ExtResource( 2 )]
+margin_left = 121.0
+margin_top = 164.0
+margin_right = 426.0
+margin_bottom = 469.0
+
+[node name="BgPlaceholder" type="Sprite" parent="."]
+position = Vector2( 512, 384 )
+texture = ExtResource( 3 )
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -63,70 +92,44 @@ script = ExtResource( 6 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 67.0
-margin_top = -172.0
-margin_right = -518.0
-margin_bottom = -11.0
+margin_left = 21.0
+margin_top = -337.0
+margin_right = -503.0
+margin_bottom = 38.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="TextBox/TextBoxContainer"]
+[node name="TextBox" type="TextureRect" parent="TextBox/TextBoxContainer"]
 use_parent_material = true
-margin_right = 439.0
-margin_bottom = 161.0
-custom_styles/panel = ExtResource( 7 )
+margin_right = 500.0
+margin_bottom = 375.0
+texture = ExtResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer" parent="TextBox/TextBoxContainer"]
-margin_right = 439.0
-margin_bottom = 161.0
-custom_constants/margin_right = 30
+margin_right = 500.0
+margin_bottom = 375.0
+custom_constants/margin_right = 64
 custom_constants/margin_top = 30
-custom_constants/margin_left = 30
+custom_constants/margin_left = 64
 custom_constants/margin_bottom = 30
 
-[node name="Panel" type="Panel" parent="TextBox/TextBoxContainer/MarginContainer"]
-visible = false
-margin_left = 30.0
+[node name="LabelText" type="Label" parent="TextBox/TextBoxContainer/MarginContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 64.0
 margin_top = 30.0
-margin_right = 409.0
-margin_bottom = 131.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextBox/TextBoxContainer/MarginContainer"]
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 409.0
-margin_bottom = 131.0
-
-[node name="StartSymbol" type="Label" parent="TextBox/TextBoxContainer/MarginContainer/HBoxContainer"]
-margin_right = 10.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 10, 0 )
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 2 )
-text = "\""
-
-[node name="LabelText" type="Label" parent="TextBox/TextBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 14.0
-margin_right = 365.0
-margin_bottom = 101.0
+margin_right = 436.0
+margin_bottom = 345.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
 text = "Where am I? What was I doing? I only remember an eerie feeling... "
 align = 1
+valign = 1
 autowrap = true
 
-[node name="EndSymbol" type="Label" parent="TextBox/TextBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 369.0
-margin_top = 73.0
-margin_right = 379.0
-margin_bottom = 101.0
-rect_min_size = Vector2( 10, 0 )
-size_flags_vertical = 8
-custom_fonts/font = SubResource( 2 )
-text = "\""
-
 [node name="Tween" type="Tween" parent="TextBox"]
+
+[node name="AudioController" parent="." instance=ExtResource( 9 )]
 
 [editable path="PotionMixingLayer"]

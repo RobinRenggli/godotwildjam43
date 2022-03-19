@@ -4,16 +4,31 @@ var state = "success"
 
 export var level = 1
 
-export var health = 3
-export var strength = 1
-export var luck = 1
-export var stamina = 1
-export var speed = 1
+var base_stats = {
+	"health": 3,
+	"strength": 1,
+	"luck": 1,
+	"stamina": 1,
+	"speed": 1,
 
-export var poison_resistance = 0
-export var fire_resistance = 0
-export var magic_resistance = 0
-export var cold_resistance = 0
+	"poison_resistance": 0,
+	"fire_resistance": 0,
+	"magic_resistance": 0,
+	"cold_resistance": 0,
+}
+
+var stats = {
+	"health": 3,
+	"strength": 1,
+	"luck": 1,
+	"stamina": 1,
+	"speed": 1,
+
+	"poison_resistance": 0,
+	"fire_resistance": 0,
+	"magic_resistance": 0,
+	"cold_resistance": 0,
+}
 
 var next_adventure
 
@@ -26,6 +41,7 @@ func _ready():
 	pass # Replace with function body.
 
 func chose_adventure(adventures):
+	stats = base_stats.duplicate(false)
 	next_adventure = null
 	while(true):
 		var rand_index = randi() % adventures.size()
@@ -46,5 +62,8 @@ func can_drop_data(position, data):
 	
 func drop_data(_pos, data):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	var potion_effects = data["effects"]
+	for key in potion_effects:
+		stats[key] += potion_effects[key]
 	emit_signal("potion_received")
 	

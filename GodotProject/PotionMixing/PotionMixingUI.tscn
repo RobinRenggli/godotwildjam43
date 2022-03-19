@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://PotionMixing/Potions/BullHeart.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Util/DropConsumer.gd" type="Script" id=2]
 [ext_resource path="res://PotionMixing/Cauldron/Cauldron.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PotionMixing/Potions/SnakeExtract.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PotionMixing/Potions/GroundClover.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PotionMixing/Potions/Beetroot Juice.tscn" type="PackedScene" id=6]
 
 [node name="PotionMixingLayer" type="CanvasLayer"]
 
@@ -45,4 +47,20 @@ effects = {
 }
 negative_effects = {
 "health": -1
+}
+
+[node name="GroundClover" parent="." instance=ExtResource( 5 )]
+effects = {
+"luck": 1
+}
+negative_effects = {
+"magic_resistance": -1
+}
+
+[node name="Beetroot Juice" parent="." instance=ExtResource( 6 )]
+effects = {
+"speed": 1
+}
+negative_effects = {
+"strength": -1
 }
