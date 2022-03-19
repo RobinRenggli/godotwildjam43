@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://PotionMixing/PotionMixingUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Heroes/Dwarf.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Util/DropConsumer.gd" type="Script" id=1]
+[ext_resource path="res://Heroes/Ogre.gd" type="Script" id=2]
 [ext_resource path="res://MainScene/Background.png" type="Texture" id=3]
 [ext_resource path="res://MainScene/MainScene.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/boert.tres" type="DynamicFont" id=5]
@@ -9,83 +9,23 @@
 [ext_resource path="res://Assets/Textbox.png" type="Texture" id=7]
 [ext_resource path="res://MainScene/Landscape.png" type="Texture" id=8]
 [ext_resource path="res://AudioController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Heroes/Knight.gd" type="Script" id=10]
+[ext_resource path="res://Heroes/Knight.png" type="Texture" id=11]
+[ext_resource path="res://Heroes/Ogre.png" type="Texture" id=12]
+[ext_resource path="res://Heroes/Dwarf.png" type="Texture" id=13]
+[ext_resource path="res://Heroes/Dwarf.gd" type="Script" id=14]
+[ext_resource path="res://PotionMixing/Potions/SnakeExtract.tscn" type="PackedScene" id=15]
+[ext_resource path="res://PotionMixing/Potions/GroundClover.tscn" type="PackedScene" id=16]
+[ext_resource path="res://PotionMixing/Potions/Beetroot Juice.tscn" type="PackedScene" id=17]
+[ext_resource path="res://PotionMixing/Potions/BullHeart.tscn" type="PackedScene" id=18]
+[ext_resource path="res://PotionMixing/Cauldron/Cauldron.tscn" type="PackedScene" id=19]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Landscape" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.862745 )
-position = Vector2( 271, 262 )
-texture = ExtResource( 8 )
-
-[node name="PotionMixingLayer" parent="." instance=ExtResource( 1 )]
-
-[node name="Cauldron" parent="PotionMixingLayer" index="1"]
-margin_left = 538.0
-margin_top = 483.0
-margin_right = 938.0
-margin_bottom = 883.0
-
-[node name="BullHeart" parent="PotionMixingLayer" index="2"]
-margin_left = 589.0
-margin_top = 66.0
-margin_right = 739.0
-margin_bottom = 216.0
-effects = {
-"health": 1
-}
-negative_effects = {
-"speed": -1
-}
-
-[node name="Snake Extract" parent="PotionMixingLayer" index="3"]
-margin_left = 684.0
-margin_top = 148.0
-margin_right = 834.0
-margin_bottom = 298.0
-effects = {
-"poison_resistance": 1
-}
-negative_effects = {
-"health": -1
-}
-
-[node name="GroundClover" parent="PotionMixingLayer" index="4"]
-margin_left = 781.0
-margin_top = 150.0
-margin_right = 931.0
-margin_bottom = 300.0
-effects = {
-"luck": 1
-}
-negative_effects = {
-"magic_resistance": -1
-}
-
-[node name="Beetroot Juice" parent="PotionMixingLayer" index="5"]
-margin_left = 566.0
-margin_top = 140.0
-margin_right = 716.0
-margin_bottom = 290.0
-effects = {
-"speed": 1
-}
-negative_effects = {
-"strength": -1
-}
-
-[node name="Dwarf" parent="PotionMixingLayer" instance=ExtResource( 2 )]
-margin_left = 121.0
-margin_top = 164.0
-margin_right = 426.0
-margin_bottom = 469.0
-
-[node name="BgPlaceholder" type="Sprite" parent="."]
-position = Vector2( 512, 384 )
-texture = ExtResource( 3 )
-
 [node name="TextBox" type="CanvasLayer" parent="."]
 pause_mode = 2
+layer = 2
 script = ExtResource( 6 )
 
 [node name="TextBoxContainer" type="MarginContainer" parent="TextBox"]
@@ -132,4 +72,146 @@ autowrap = true
 
 [node name="AudioController" parent="." instance=ExtResource( 9 )]
 
-[editable path="PotionMixingLayer"]
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 768.0
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PotionMixingLayer" type="CanvasLayer" parent="."]
+
+[node name="StoreLayer" type="CanvasLayer" parent="PotionMixingLayer"]
+layer = -2
+
+[node name="Landscape" type="Sprite" parent="PotionMixingLayer/StoreLayer"]
+self_modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 288, 282 )
+z_index = -3
+texture = ExtResource( 8 )
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="PotionMixingLayer"]
+layer = 0
+
+[node name="BgPlaceholder" type="Sprite" parent="PotionMixingLayer/BackgroundLayer"]
+position = Vector2( 512, 382 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="Cauldron" parent="PotionMixingLayer" instance=ExtResource( 19 )]
+margin_left = 538.0
+margin_top = 483.0
+margin_right = 938.0
+margin_bottom = 883.0
+
+[node name="BullHeart" parent="PotionMixingLayer" instance=ExtResource( 18 )]
+margin_left = 589.0
+margin_top = 66.0
+margin_right = 739.0
+margin_bottom = 216.0
+hint_tooltip = "Bull Heart"
+effects = {
+"health": 1
+}
+negative_effects = {
+"speed": -1
+}
+
+[node name="Snake Extract" parent="PotionMixingLayer" instance=ExtResource( 15 )]
+margin_left = 684.0
+margin_top = 148.0
+margin_right = 834.0
+margin_bottom = 298.0
+effects = {
+"poison_resistance": 1
+}
+negative_effects = {
+"health": -1
+}
+
+[node name="GroundClover" parent="PotionMixingLayer" instance=ExtResource( 16 )]
+margin_left = 781.0
+margin_top = 150.0
+margin_right = 931.0
+margin_bottom = 300.0
+effects = {
+"luck": 1
+}
+negative_effects = {
+"magic_resistance": -1
+}
+
+[node name="Beetroot Juice" parent="PotionMixingLayer" instance=ExtResource( 17 )]
+margin_left = 566.0
+margin_top = 140.0
+margin_right = 716.0
+margin_bottom = 290.0
+effects = {
+"speed": 1
+}
+negative_effects = {
+"strength": -1
+}
+
+[node name="Dwarf" type="TextureRect" parent="PotionMixingLayer"]
+visible = false
+margin_left = 119.0
+margin_top = 167.0
+margin_right = 424.0
+margin_bottom = 472.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PotionMixingLayer/Dwarf"]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="PotionMixingLayer/Dwarf/CanvasLayer"]
+visible = false
+position = Vector2( 277, 352 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 13 )
+
+[node name="Ogre" type="TextureRect" parent="PotionMixingLayer"]
+visible = false
+margin_left = 102.0
+margin_top = 67.0
+margin_right = 502.0
+margin_bottom = 467.0
+rect_scale = Vector2( 0.9, 0.9 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PotionMixingLayer/Ogre"]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="PotionMixingLayer/Ogre/CanvasLayer"]
+visible = false
+position = Vector2( 280, 254 )
+texture = ExtResource( 12 )
+
+[node name="Knight" type="TextureRect" parent="PotionMixingLayer"]
+visible = false
+margin_left = 64.0
+margin_top = 51.0
+margin_right = 864.0
+margin_bottom = 851.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PotionMixingLayer/Knight"]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="PotionMixingLayer/Knight/CanvasLayer"]
+visible = false
+position = Vector2( 265, 252 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
