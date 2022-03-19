@@ -5,34 +5,34 @@ var state = "success"
 export var level = 1
 
 var base_stats = {
-	"health": 3,
-	"strength": 2,
-	"luck": 1,
+	"health": 5,
+	"strength": 3,
+	"luck": 0,
 	"stamina": 1,
 	"speed": 1,
 
-	"poison_resistance": 1,
-	"fire_resistance": 1,
-	"magic_resistance": 1,
-	"cold_resistance": 1,
+	"poison_resistance": 0,
+	"fire_resistance": 0,
+	"magic_resistance": 0,
+	"cold_resistance": 0,
 }
 
 var stats = {
-	"health": 3,
-	"strength": 2,
-	"luck": 1,
+	"health": 5,
+	"strength": 3,
+	"luck": 0,
 	"stamina": 1,
 	"speed": 1,
 
-	"poison_resistance": 1,
-	"fire_resistance": 1,
-	"magic_resistance": 1,
-	"cold_resistance": 1,
+	"poison_resistance": 0,
+	"fire_resistance": 0,
+	"magic_resistance": 0,
+	"cold_resistance": 0,
 }
 
 var next_adventure
 
-var dialog = "Oi, are you the new potion seller? I am Silli the dwarf and would like to employ your services."
+var dialog = "Uh, hello. Name is Otto the Ogre. Otto need potions. You are potion man, yes? Then make potion for Otto."
 
 signal potion_received
 
@@ -64,6 +64,6 @@ func drop_data(_pos, data):
 	var potion_effects = data["effects"]
 	for key in potion_effects:
 		stats[key] += potion_effects[key]
-		print("Dwarf received")
+	print("Ogre received")
 	emit_signal("potion_received")
 	
