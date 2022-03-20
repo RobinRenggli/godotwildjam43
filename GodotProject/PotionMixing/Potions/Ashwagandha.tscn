@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PotionMixing/Potions/GreenPotion.png" type="Texture" id=1]
 [ext_resource path="res://PotionMixing/Potions/PotionTemplate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PotionMixing/Cauldron/spotlight_1.png" type="Texture" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.58759, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.0165746, 0.21547, 0.696133, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.741176, 1, 0.709804, 1, 0.741176, 1, 0.709804, 0.854902, 1, 1, 1, 0 )
 
 [node name="Ashwagandha" instance=ExtResource( 2 )]
 texture = ExtResource( 1 )
@@ -12,3 +20,30 @@ effects = {
 negative_effects = {
 "fire_resistance": -1
 }
+
+[node name="Light" type="Light2D" parent="PotionLabel/Label" index="0"]
+position = Vector2( 78, 106 )
+scale = Vector2( 1.52866, 1.41787 )
+texture = ExtResource( 3 )
+texture_scale = 2.77
+color = Color( 0.803922, 1, 0.780392, 1 )
+energy = 3.0
+shadow_color = Color( 0, 0, 0, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PotionLabel" index="1"]
+position = Vector2( 81, 118 )
+z_index = -1
+amount = 10
+lifetime = 2.0
+speed_scale = 0.8
+texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 33.87
+direction = Vector2( 0, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+radial_accel = 12.84
+scale_amount = 2.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 0.741176, 1, 0.709804, 1 )
+color_ramp = SubResource( 2 )
