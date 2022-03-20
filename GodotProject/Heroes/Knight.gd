@@ -34,6 +34,8 @@ var next_adventure
 
 var dialog = "Good day, kind sir. I am in need for potions for my coming adventures. Could you provide me with such?"
 
+var goodbye = "Thanks, until next time!"
+
 signal potion_received
 
 # Called when the node enters the scene tree for the first time.
@@ -64,6 +66,5 @@ func drop_data(_pos, data):
 	var potion_effects = data["effects"]
 	for key in potion_effects:
 		stats[key] += potion_effects[key]
-	print("Knight received")
 	emit_signal("potion_received")
 	

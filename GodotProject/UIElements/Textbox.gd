@@ -10,6 +10,8 @@ onready var label_text = $TextBoxContainer/MarginContainer/LabelText
 var current_state = State.READY
 var text_queue = []
 
+signal is_empty
+
 enum State {
 	READY,
 	READING
@@ -67,4 +69,6 @@ func display_text():
 	label_text.modulate.a = 1.0
 	textbox_container.modulate.a = 1.0
 	$Tween.remove_all()
+	if(text_queue.empty()):
+		emit_signal("is_empty")
 	change_state(State.READY)

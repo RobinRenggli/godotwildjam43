@@ -1,11 +1,5 @@
 extends Node
 
-enum OUTCOME{
-	success,
-	escape,
-	death
-}
-
 var level = 1
 
 var outcome
@@ -19,6 +13,10 @@ func start_adventure(hero):
 		var result = encounter.instance().encounter(hero)
 		summary += result[0]
 		outcome = result[1]
-		if (!(outcome == OUTCOME.success)):
+		if (!(outcome == "success")):
 			return [summary, outcome]
+	if(hero.level < level):
+		hero.level += 1
+		summary += "I leveled up!"
 	return [summary, outcome]
+

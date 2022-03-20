@@ -34,6 +34,8 @@ var next_adventure
 
 var dialog = "Uh, hello. Name is Otto the Ogre. Otto need potions. You are potion man, yes? Then make potion for Otto."
 
+var goodbye = "Otto go smash. Goodbye."
+
 signal potion_received
 
 # Called when the node enters the scene tree for the first time.
@@ -64,6 +66,5 @@ func drop_data(_pos, data):
 	var potion_effects = data["effects"]
 	for key in potion_effects:
 		stats[key] += potion_effects[key]
-	print("Ogre received")
 	emit_signal("potion_received")
 	

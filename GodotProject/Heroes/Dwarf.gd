@@ -34,6 +34,8 @@ var next_adventure
 
 var dialog = "Oi, are you the new potion seller? I am Silli the dwarf and would like to employ your services."
 
+var goodbye = "Off I go!"
+
 signal potion_received
 
 # Called when the node enters the scene tree for the first time.
@@ -64,6 +66,5 @@ func drop_data(_pos, data):
 	var potion_effects = data["effects"]
 	for key in potion_effects:
 		stats[key] += potion_effects[key]
-		print("Dwarf received")
 	emit_signal("potion_received")
 	
