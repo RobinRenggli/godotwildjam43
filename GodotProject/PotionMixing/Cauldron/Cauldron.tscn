@@ -105,6 +105,7 @@ color = Color( 0, 0, 0, 1 )
 color_ramp = SubResource( 5 )
 
 [node name="CauldronBadCauldron" type="CPUParticles2D" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.560784 )
 position = Vector2( 208, 72 )
 emitting = false

@@ -20,7 +20,7 @@ negative_effects = {
 }
 
 [node name="Light" type="Light2D" parent="PotionLabel/Label" index="0"]
-position = Vector2( 73, 104 )
+position = Vector2( 68, 98 )
 scale = Vector2( 1.52866, 1.41787 )
 texture = ExtResource( 2 )
 texture_scale = 2.77

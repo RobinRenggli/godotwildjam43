@@ -109,9 +109,7 @@ func good_ingredient_added():
 
 func bad_ingredient_added():
 	var bad_effect = get_node("CauldronPotionBadParticles")
-	var bad_cauldron = get_node("CauldronBadCauldron")
 	bad_effect.emitting = true
-	bad_cauldron.emitting = true
 	
 		
 	
