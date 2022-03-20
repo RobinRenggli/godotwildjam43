@@ -15,7 +15,7 @@ func start_adventure(hero):
 		outcome = result[1]
 		if (!(outcome == "success")):
 			return [summary, outcome]
-	if(hero.level < level):
+	if(hero.level <= level):
 		hero.level += 1
 		summary += "I leveled up!"
 	return [summary, outcome]

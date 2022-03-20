@@ -69,3 +69,4 @@ func drop_data(_pos, data):
 			stats[key] += potion_effects[key]
 		emit_signal("potion_received")
 	
+ 

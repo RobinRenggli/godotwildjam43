@@ -4,7 +4,15 @@ var active_hero
 var active_hero_index
 onready var TextBox = $TextBox
 
-onready var adventures = [preload("res://Adventures/FightGoblin.tscn").instance()]
+onready var adventures = [
+	preload("res://Adventures/FightGoblin.tscn").instance(),
+	preload("res://Adventures/CampingTrip.tscn").instance(),
+	preload("res://Adventures/FightBabyDragon.tscn").instance(),
+	preload("res://Adventures/FightScorpions.tscn").instance(),
+	preload("res://Adventures/FightWitch.tscn").instance(),
+	preload("res://Adventures/RunRace.tscn").instance(),
+	preload("res://Adventures/WizardPoker.tscn").instance(),
+]
 
 onready var heroes = [$PotionMixingLayer/Dwarf, $PotionMixingLayer/Ogre, $PotionMixingLayer/Knight]
 
@@ -21,10 +29,15 @@ func game_loop():
 	if (active_hero.state == "death"):
 		active_hero.get_node("CanvasLayer/Sprite").modulate = Color(1,1,1,0.5)
 		TextBox.queue_text(active_hero.dialog)
+		active_hero.dialog = ""
 		yield(TextBox, "is_empty")
 		heroes.remove(active_hero_index)
 		active_hero.visible = false
 		active_hero.get_node("CanvasLayer/Sprite").visible = false
+		if(heroes.is_empty()):
+			TextBox.queue_text("GAME OVER")
+			yield(TextBox, "is_empty")
+			get_tree().reload_current_scene()	
 	else:
 		TextBox.queue_text(active_hero.dialog)
 		var adventure = active_hero.chose_adventure(adventures)

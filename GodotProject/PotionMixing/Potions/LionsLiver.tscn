@@ -16,7 +16,7 @@ effects = {
 "strength": 1
 }
 negative_effects = {
-"magic_resistance": -1
+"poison_resistance": -1
 }
 
 [node name="Light" type="Light2D" parent="PotionLabel/Label" index="0"]

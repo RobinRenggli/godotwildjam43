@@ -15,9 +15,10 @@ colors = PoolColorArray( 1, 1, 1, 0, 1, 0.976471, 0.796078, 1, 1, 0.976471, 0.79
 texture = ExtResource( 1 )
 potion_name = "Whisky"
 effects = {
-"cold_resistance": 0
+"cold_resistance": 1
 }
 negative_effects = {
+"stamina": -1,
 "strength": -1
 }
 
