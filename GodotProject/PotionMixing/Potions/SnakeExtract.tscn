@@ -22,17 +22,17 @@ negative_effects = {
 }
 
 [node name="Light" type="Light2D" parent="PotionLabel/Label" index="0"]
-position = Vector2( 70, 29 )
+position = Vector2( 75, 103 )
 scale = Vector2( 1.52866, 1.41787 )
+z_index = 1
 texture = ExtResource( 3 )
 texture_scale = 2.77
 color = Color( 1, 0.945098, 0.756863, 1 )
-energy = 2.0
+energy = 4.0
 shadow_color = Color( 0, 0, 0, 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="PotionLabel" index="1"]
-self_modulate = Color( 1, 1, 1, 0.537255 )
-position = Vector2( 72, 4 )
+position = Vector2( 76, 103 )
 z_index = -1
 amount = 10
 lifetime = 2.0
