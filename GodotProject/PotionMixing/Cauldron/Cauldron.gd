@@ -5,6 +5,8 @@ var nr_ingredients = 0
 var nr_bad_ingredients = 0
 var RNG
 
+var floating_text_scene = preload("res://PotionMixing/Cauldron/FloatingText.tscn")
+
 func _ready():
 	RNG = RandomNumberGenerator.new()
 	RNG.randomize()
@@ -43,8 +45,22 @@ func add_to_cauldron(data):
 		if not bad_ingredient:
 			effects = data["effects"]
 			good_ingredient_added()
+			var floating_text = floating_text_scene.instance()
+			var text = str(data["effects"]).substr(1).replace("_", " ")
+			text.erase(text.length() -1, 1)
+			floating_text.text = text
+			floating_text.position = Vector2(200, 50)
+			floating_text.velocity = Vector2(rand_range(-50, 50), -100)
+			add_child(floating_text)
 		else:
 			effects = data["negative_effects"]
+			var floating_text = floating_text_scene.instance()
+			var text = str(data["negative_effects"]).substr(1).replace("_", " ")
+			text.erase(text.length() -1, 1)
+			floating_text.text = text
+			floating_text.position = Vector2(200, 50)
+			floating_text.velocity = Vector2(rand_range(-50, 50), -100)
+			add_child(floating_text)
 			nr_bad_ingredients += 1
 			bad_ingredient_added()
 		for key in effects:

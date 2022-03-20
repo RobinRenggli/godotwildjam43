@@ -5,4 +5,5 @@
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+description = "I'm going to fight a witch. What would you recommend?"
 encounters = [ ExtResource( 2 ) ]
