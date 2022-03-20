@@ -16,7 +16,7 @@ func get_drag_data(position):
 		"finished": true
 		}
 	var drag_texture = TextureRect.new()
-	drag_texture.texture = load("res://icon.png")
+	drag_texture.texture = load("res://PotionMixing/Potions/GreenPotion.png")
 	
 	var control = Control.new()
 	control.add_child(drag_texture)

@@ -7,7 +7,6 @@ export var level = 1
 var base_stats = {
 	"health": 5,
 	"strength": 3,
-	"luck": 0,
 	"stamina": 1,
 	"speed": 1,
 

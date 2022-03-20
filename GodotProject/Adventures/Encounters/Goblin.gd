@@ -4,14 +4,14 @@ var outcome
 var summary = ""
 
 func encounter(hero):
-	if (hero.stats["strength"] >= 2):
-		summary += "I defeated a goblin."
+	if (hero.stats["poison_resistance"] >= 1):
+		summary += "I got rid of the scorpions."
 		outcome = "success"
-	elif (hero.stats["health"] < 2 and hero.stats["speed"] < 3):
-		summary += "I died fighting a goblin."
+	elif (hero.stats["health"] <= 2):
+		summary += "I died of scorpion poison."
 		outcome = "death"
 	else:
-		summary += "I got bested by a goblin, but managed to escape."
-		outcome = "escape"
+		summary += "I barely survived being poisoned by scorpions."
+		outcome = "escape" 
 		
 	return [summary, outcome]
