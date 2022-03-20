@@ -8,7 +8,7 @@ func encounter(hero):
 		summary += "I slayed the baby dragon."
 		outcome = "success"
 	elif (hero.stats["fire_resistance"] < 1):
-		summary += "I w."
+		summary += "I was slain by the baby dragon."
 		outcome = "death"
 	else:
 		summary += "I nearly got killed by the baby dragon but managed to escape."

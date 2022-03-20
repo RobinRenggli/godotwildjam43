@@ -1,6 +1,6 @@
 extends Node
 
-var level = 1
+export var level = 1
 
 var outcome
 var summary = ""

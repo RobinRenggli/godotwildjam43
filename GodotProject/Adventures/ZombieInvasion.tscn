@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Adventures/Encounters/ZombieHorde.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Adventures/AdventureTemplate.tscn" type="PackedScene" id=2]
+
+[node name="Node" instance=ExtResource( 2 )]
+level = 2
+description = "My village is besieged by a horde of zombies. What would you recommend?"
+encounters = [ ExtResource( 1 ) ]
