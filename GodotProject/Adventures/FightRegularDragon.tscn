@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Adventures/Encounters/MidSizedDragon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Adventures/AdventureTemplate.tscn" type="PackedScene" id=2]
+
+[node name="Node" instance=ExtResource( 2 )]
+level = 3
+description = "I'm going to fight a  dragon of regular size. What would you recommend?"
+encounters = [ ExtResource( 1 ) ]

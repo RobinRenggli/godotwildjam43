@@ -12,6 +12,8 @@ onready var adventures = [
 	preload("res://Adventures/FightWitch.tscn").instance(),
 	preload("res://Adventures/RunRace.tscn").instance(),
 	preload("res://Adventures/WizardPoker.tscn").instance(),
+	preload("res://Adventures/ZombieInvasion.tscn").instance(),
+	preload("res://Adventures/GasInvasion.tscn").instance(),
 ]
 
 onready var heroes = [$PotionMixingLayer/Dwarf, $PotionMixingLayer/Ogre, $PotionMixingLayer/Knight]
