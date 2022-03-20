@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PotionMixing/Potions/PurplePotion.png" type="Texture" id=1]
+[ext_resource path="res://PotionMixing/Potions/PotionTemplate.tscn" type="PackedScene" id=2]
+
+[node name="BlendedFairy" instance=ExtResource( 2 )]
+texture = ExtResource( 1 )
+potion_name = "BlendedFairy"
+effects = {
+"magic_resistance": 1
+}
+negative_effects = {
+"luck": -1
+}

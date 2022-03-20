@@ -63,9 +63,10 @@ func can_drop_data(position, data):
 	
 func drop_data(_pos, data):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	var potion_effects = data["effects"]
-	for key in potion_effects:
-		stats[key] += potion_effects[key]
-	emit_signal("potion_received")
+	if data["finished"]:
+		var potion_effects = data["effects"]
+		for key in potion_effects:
+			stats[key] += potion_effects[key]
+		emit_signal("potion_received")
 	
  

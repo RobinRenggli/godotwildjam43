@@ -18,11 +18,9 @@ expand = true
 script = ExtResource( 2 )
 
 [node name="PotionLabel" type="TextureRect" parent="."]
-visible = false
-margin_left = 4.0
-margin_top = 69.0
-margin_right = 146.0
-margin_bottom = 171.0
+margin_top = -17.0
+margin_right = 142.0
+margin_bottom = 85.0
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
